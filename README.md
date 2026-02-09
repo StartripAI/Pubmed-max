@@ -25,23 +25,16 @@ Semantic stress check (public rate limit conditions):
 
 Detailed report: `reports/GENERAL_BENCHMARK_2026-02-09.md`
 
-## Core data status (example workbook snapshot, 2026-02-09)
+## Release KPI status (general)
 
-| Task | Core non-empty values | Core possible values | Coverage |
-|---|---:|---:|---:|
-| Task 1 (Survival endpoints) | 64 | 128 | 50.00% |
-| Task 2 (Tumor control endpoints) | 43 | 176 | 24.43% |
-| Task 3 (Safety/QoL endpoints) | 56 | 112 | 50.00% |
-
-## Delta vs previous release
-
-| Metric | Delta |
+| KPI | Value |
 |---|---:|
-| Task 1 core non-empty values | 0 |
-| Task 2 core non-empty values | 0 |
-| Task 3 core non-empty values | 0 |
-
-This means the latest release improved runtime robustness and publication quality, but **did not increase core data values**.
+| Candidate growth, same source budget | +8.28% |
+| Candidate growth, expanded OA source routing | +128.24% |
+| Abstract coverage (expanded routing) | 59.28% |
+| Identifier coverage (expanded routing) | 96.13% |
+| Hard failures in benchmark run | 0 |
+| Semantic stress runtime delta | -27.84% |
 
 ## What this repository includes
 
@@ -53,7 +46,7 @@ This means the latest release improved runtime robustness and publication qualit
 - `reports/COMPARISON_2026-02-09.md` - engine/path comparison
 - `reports/GENERAL_BENCHMARK_2026-02-09.md` - general, non-case benchmark
 - `reports/MARKET_POSITION_2026-02-09.md` - baseline-vs-product positioning with hard metrics
-- `examples/` - workbook and audit examples
+- `examples/` - output artifact examples
 
 ## Product principles
 
@@ -64,5 +57,5 @@ This means the latest release improved runtime robustness and publication qualit
 
 ## Current focus
 
-- Increase Task 2 and Task 3 core coverage with high-grade evidence.
+- Increase high-grade endpoint extraction yield across medical topics.
 - Keep evidence mapping and auditability at 100%.
