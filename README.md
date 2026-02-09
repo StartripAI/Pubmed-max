@@ -2,7 +2,35 @@
 
 **Content-first PubMed-centric medical retrieval and evidence synthesis pipeline.**
 
+Mission: **build the world's most reliable, content-dense, and auditable medical retrieval workflow**.
+
 The product goal is simple: **increase core medical evidence density with full traceability**.
+
+## Human vs Automation Benchmark (core-data first)
+
+This benchmark compares:
+
+- **Human baseline**: one physician-authored extraction baseline (MD + PhD profile), manually curated over ~2-3 days.
+- **Pubmed-max run**: same evidence goal, automated retrieval + download + extraction + workbook build.
+
+| Metric | Human baseline | Pubmed-max | Delta |
+|---|---:|---:|---:|
+| Core non-empty values (Task1+2+3) | 186 | 198 | **+12 (+6.5%)** |
+| Unique trials across Task1+2+3 | 23 | 30 | **+7 (+30.4%)** |
+| Task1 core non-empty values | 64 | 72 | **+8 (+12.5%)** |
+| Task2 core non-empty values | 44 | 46 | **+2 (+4.5%)** |
+| Task3 core non-empty values | 78 | 80 | **+2 (+2.6%)** |
+| Evidence rows (bottom evidence table) | 94 | 112 | **+18 (+19.1%)** |
+| Incremental dynamic evidence level A | N/A | 11/11 | **100% A-level** |
+| Runtime (end-to-end in this run) | ~2-3 days | **~3m30s** | **~800x-1200x faster** |
+
+Notes:
+
+- The speed benchmark used a measured run: `download-batch` (66 candidates, 14 full-text success) + workbook build.
+- Quality gate thresholds were not relaxed; traceability remained strict.
+- This is a real extraction benchmark, not a synthetic retrieval-only benchmark.
+
+Detailed report: `reports/HUMAN_VS_AUTOMATION_BENCHMARK_2026-02-09.md`
 
 ## General benchmark (not case-specific)
 
@@ -43,6 +71,7 @@ Detailed report: `reports/GENERAL_BENCHMARK_2026-02-09.md`
 - `src/dimensions_catalog.yaml` - dynamic dimension registry
 - `src/source_registry.yaml` - source reliability and institution registry
 - `reports/CORE_DATA_STATUS_2026-02-09.md` - content-first KPI snapshot
+- `reports/HUMAN_VS_AUTOMATION_BENCHMARK_2026-02-09.md` - manual baseline vs automation benchmark
 - `reports/COMPARISON_2026-02-09.md` - engine/path comparison
 - `reports/GENERAL_BENCHMARK_2026-02-09.md` - general, non-case benchmark
 - `reports/MARKET_POSITION_2026-02-09.md` - baseline-vs-product positioning with hard metrics
