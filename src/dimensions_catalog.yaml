@@ -1,0 +1,245 @@
+catalog_version: '1.0'
+dimensions:
+- dimension_id: ae_discontinuation_rate
+  name: AE-driven Treatment Discontinuation Rate
+  category: safety_qol
+  unit: '%'
+  definition_source: Treatment exposure and tolerability reporting standard
+  allowed_tasks:
+  - task3
+  status: deprecated
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_135135'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 0
+- dimension_id: ae_dose_reduction_rate
+  name: AE-driven Dose Reduction Rate
+  category: safety_qol
+  unit: '%'
+  definition_source: Dose intensity and safety reporting convention
+  allowed_tasks:
+  - task3
+  status: deprecated
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_125749'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 3
+- dimension_id: ae_grade3plus
+  name: Grade >=3 Adverse Event Rate
+  category: safety_qol
+  unit: '%'
+  definition_source: CTCAE grade >=3 toxicity convention
+  allowed_tasks:
+  - task3
+  status: core
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_135135'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 0
+- dimension_id: bicr_orr
+  name: BICR Objective Response Rate
+  category: tumor_control
+  unit: '%'
+  definition_source: RECIST independent central review standard
+  allowed_tasks:
+  - task2
+  status: deprecated
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_125749'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 3
+- dimension_id: ca199_response_rate
+  name: CA19-9 Response Rate
+  category: tumor_control
+  unit: '%'
+  definition_source: Pancreatic cancer biomarker response convention
+  allowed_tasks:
+  - task2
+  status: deprecated
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_125749'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 3
+- dimension_id: custom_clinical_signal
+  name: custom_clinical_signal
+  category: custom
+  unit: text
+  definition_source: auto_discovered_from_biomedical_text
+  allowed_tasks:
+  - task1
+  - task2
+  - task3
+  status: core
+  first_seen_run: '20260209_125541'
+  last_seen_run: '20260209_135135'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 0
+- dimension_id: dcr
+  name: Disease Control Rate
+  category: tumor_control
+  unit: '%'
+  definition_source: RECIST disease-control endpoint convention
+  allowed_tasks:
+  - task2
+  status: deprecated
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_135135'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 0
+- dimension_id: icer
+  name: Incremental Cost-Effectiveness Ratio
+  category: safety_qol
+  unit: cost/QALY
+  definition_source: Health technology assessment methodology
+  allowed_tasks:
+  - task3
+  status: deprecated
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_125749'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 3
+- dimension_id: orr
+  name: Objective Response Rate
+  category: tumor_control
+  unit: '%'
+  definition_source: RECIST objective response definition
+  allowed_tasks:
+  - task2
+  status: deprecated
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_135135'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 0
+- dimension_id: os_hr_ci
+  name: Overall Survival Hazard Ratio with CI
+  category: survival
+  unit: HR(95%CI)
+  definition_source: CONSORT/clinical trial reporting convention
+  allowed_tasks:
+  - task1
+  status: core
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_135135'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 0
+- dimension_id: os_median
+  name: Median Overall Survival
+  category: survival
+  unit: months
+  definition_source: RECIST/oncology-trial standard endpoint definitions
+  allowed_tasks:
+  - task1
+  status: core
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_135135'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 0
+- dimension_id: pcr_rate
+  name: Pathologic Complete Response Rate
+  category: tumor_control
+  unit: '%'
+  definition_source: Pathology response reporting standard
+  allowed_tasks:
+  - task2
+  status: deprecated
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_125749'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 3
+- dimension_id: pfs_hr_ci
+  name: Progression-Free Survival Hazard Ratio with CI
+  category: survival
+  unit: HR(95%CI)
+  definition_source: CONSORT/clinical trial reporting convention
+  allowed_tasks:
+  - task1
+  status: core
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_135135'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 0
+- dimension_id: pfs_median
+  name: Median Progression-Free Survival
+  category: survival
+  unit: months
+  definition_source: RECIST/oncology-trial standard endpoint definitions
+  allowed_tasks:
+  - task1
+  status: core
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_133732'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 1
+- dimension_id: qaly
+  name: Quality Adjusted Life Year
+  category: safety_qol
+  unit: QALY
+  definition_source: Health technology assessment methodology
+  allowed_tasks:
+  - task3
+  status: deprecated
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_125749'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 3
+- dimension_id: qol_score
+  name: Quality of Life Composite Result
+  category: safety_qol
+  unit: score/text
+  definition_source: EORTC/FACT/PRO reporting convention
+  allowed_tasks:
+  - task3
+  status: deprecated
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_135135'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 0
+- dimension_id: r0_resection_rate
+  name: R0 Resection Rate
+  category: tumor_control
+  unit: '%'
+  definition_source: Surgical oncology margin-negative resection standard
+  allowed_tasks:
+  - task2
+  status: candidate
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_135135'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 0
+- dimension_id: sae_rate
+  name: Serious Adverse Event Rate
+  category: safety_qol
+  unit: '%'
+  definition_source: Serious adverse event reporting convention
+  allowed_tasks:
+  - task3
+  status: deprecated
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_133620'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 2
+- dimension_id: trd_rate
+  name: Treatment-Related Death Rate
+  category: safety_qol
+  unit: '%'
+  definition_source: Trial safety mortality reporting standard
+  allowed_tasks:
+  - task3
+  status: deprecated
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_135135'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 0
+- dimension_id: tudd
+  name: Time Until Definitive Deterioration
+  category: safety_qol
+  unit: time
+  definition_source: PRO deterioration-time endpoint convention
+  allowed_tasks:
+  - task3
+  status: deprecated
+  first_seen_run: bootstrap
+  last_seen_run: '20260209_125749'
+  promotion_rule: '>=2 independent source types and >=1 tier S/A source'
+  missing_runs: 3
+last_run: '20260209_135135'
