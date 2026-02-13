@@ -1,102 +1,64 @@
 # General Research + PubMed Pipeline
 
-A production-oriented, multi-source research-paper workflow:
-**search -> fulltext download -> structured parse -> evidence extraction -> auditable output**.
+A user-facing research workflow for turning scattered papers into structured, auditable evidence.
 
-## Scope
+## Who This Is For
+- Research teams doing literature reviews
+- Clinical/scientific ops teams filling evidence tables
+- Analysts who need traceable quotes, not summaries only
 
-### In scope
-- Multi-source literature retrieval and deduplication
-- Fulltext-first evidence extraction for core fields
-- PDF/XML parsing into structured artifacts
-- Field/cell-level evidence mapping
-- Structured missing-reason reporting
+## What It Does
+- Finds relevant papers from multiple research sources
+- Prioritizes fulltext evidence for core fields
+- Extracts structured values and links each value to evidence
+- Records missing reasons when a field cannot be filled
 
-### Out of scope
-- Abstract-only filling for core fields
-- Guess-based values without traceable evidence
-- User-facing product UI
+## Typical Use Cases
+- Endpoint extraction from clinical trial papers
+- Building evidence tables for internal review
+- Updating research FAQs with source-backed claims
+- Rapid gap analysis: what is known vs not reported
 
-## Current Source Coverage
+## Coverage (Current)
+- Source registry: 29 sources
+- Source families: literature, guidelines, regulatory, institutions
+- Evidence policy: fulltext-first for core data
 
-### Source registry (`src/source_registry.yaml`)
-- Total sources: `29`
-- Literature: `5`
-- Practice guidelines: `4`
-- Regulatory: `4`
-- Institutions: `16`
-- Tier S: `9`
-- Tier A: `19`
-- Tier B: `1`
+## How The Workflow Runs
+1. Define what needs to be filled and how success is measured.
+2. Retrieve candidate papers from multiple sources.
+3. Download and parse fulltexts.
+4. Extract target fields and normalize terms.
+5. Output three aligned layers:
+   - Results (filled values)
+   - Evidence (quote + source + location)
+   - Missing reasons (why unfilled)
+6. Run quality checks for traceability and consistency.
 
-### Search sources (CLI)
-- `arxiv`, `pubmed`, `biorxiv`, `medrxiv`, `google_scholar`, `iacr`, `semantic`, `crossref`
+## What You Get
+- Faster evidence extraction with less manual copy/paste
+- A clear audit trail for every filled value
+- Explicit handling of uncertainty and missing data
 
-## Workflow Logic (Top-Down)
-1. Define task contract (input schema, output schema, acceptance criteria).
-2. Lock extraction gates (evidence policy, missing-reason taxonomy).
-3. Run multi-source retrieval.
-4. Execute fulltext download chain.
-5. Parse downloaded artifacts.
-6. Extract and normalize evidence per target field.
-7. Deliver aligned outputs:
-   - Result layer
-   - Evidence layer
-   - Missing-reason layer
-8. Run QC for traceability and gate compliance.
-
-## Key Files
-- CLI entrypoint: `src/paper_hub.py`
-- Workbook/output builder: `src/workbook_builder.py`
-- Source registry: `src/source_registry.yaml`
-- Dimension catalog: `src/dimensions_catalog.yaml`
-- SOP: `SOP_endpoint_extraction_standard.md`
-
-## GROBID Mirror and Fallback
-- Default remote mirror: `https://kermitt2-grobid.hf.space`
-- Fallback chain:
-  1. Primary URL (argument/env)
-  2. `GROBID_BACKUP_URLS`
-  3. Default mirror
-  4. Local fallback `http://localhost:8070`
-
-Environment variables:
-- `GROBID_URL` / `GROBID_REMOTE_URL`
-- `GROBID_BACKUP_URLS`
-- `GROBID_LOCAL_URL`
-- `PDF_SOURCE_URL`
-
-## Quick Start
-
-### 1) Retrieve candidates
+## Start in 3 Steps
 ```bash
+# 1) Retrieve candidates
 python3 src/paper_hub.py search-multi \
   --query "your research question" \
   --sources pubmed,crossref,semantic
-```
 
-### 2) Download fulltext candidates
-```bash
+# 2) Download fulltext candidates
 python3 src/paper_hub.py download-batch \
   --input-jsonl downloads/candidate_papers.jsonl \
   --output-dir downloads
-```
 
-### 3) Parse downloaded artifacts
-```bash
+# 3) Parse artifacts
 python3 src/paper_hub.py parse \
   --mode bioc \
   --input-dir downloads \
   --output downloads/parsed_bioc.jsonl
 ```
 
-## Upload-Safe Policy
-
-### Tracked
-- Code (`*.py`), config (`*.yaml`), core docs (`README.md`, `SOP_*.md`)
-
-### Not tracked
-- Papers/cache/output artifacts (`*.pdf`, `downloads/`, `reports/`)
-- Assignment files (`*.xlsx`, `*.docx`, `*.ppt`, `*.pptx`)
-- Local runtime/cache (`*.log`, `__pycache__/`, `.venv/`, `.codex_mem/`, `.claude/`)
-- Embedded third-party repos (`paper-search-mcp/`, `paperscraper/`, `pubmed_parser/`)
+## Core Docs
+- SOP: `SOP_endpoint_extraction_standard.md`
+- Main entrypoint: `src/paper_hub.py`
