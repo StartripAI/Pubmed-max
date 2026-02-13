@@ -13,6 +13,24 @@ A user-facing research workflow for turning scattered papers into structured, au
 - Extracts structured values and links each value to evidence
 - Records missing reasons when a field cannot be filled
 
+## Performance Snapshot (Measured)
+
+Expert baseline label (user-provided): **Harvard Medical School MD+PhD, pharma experience**, manual extraction workload around **2 days**.
+
+| Metric | Expert manual baseline | Pipeline (measured) | Pipeline (conservative 30m) | Improvement |
+|---|---:|---:|---:|---:|
+| Time to deliver structured evidence | 2880 min (2 days) | 3.5 min | 30 min | 822x faster (measured) / 96x faster (conservative) |
+| Core non-empty values | 186 | 198 | 198 | +12 (+6.5%) |
+| Unique studies captured | 23 | 30 | 30 | +7 (+30.4%) |
+| Traceability coverage proxy (evidence rows / core values) | 50.5% | 56.6% | 56.6% | +6.1 pp |
+| Evidence mapping pass rate | N/A | 100% | 100% | Higher auditability |
+
+![Benchmark Snapshot](assets/benchmark_snapshot_2026-02-09.png)
+
+Benchmark files:
+- `assets/benchmark_snapshot_2026-02-09.csv`
+- `assets/benchmark_snapshot_2026-02-09.json`
+
 ## Typical Use Cases
 - Endpoint extraction from clinical trial papers
 - Building evidence tables for internal review
@@ -39,24 +57,6 @@ A user-facing research workflow for turning scattered papers into structured, au
 - Faster evidence extraction with less manual copy/paste
 - A clear audit trail for every filled value
 - Explicit handling of uncertainty and missing data
-
-## Performance Snapshot (Measured)
-
-Expert baseline label (user-provided): **Harvard Medical School MD+PhD, pharma experience**, manual extraction workload around **2 days**.
-
-| Metric | Expert manual baseline | Pipeline (measured) | Pipeline (conservative 30m) | Improvement |
-|---|---:|---:|---:|---:|
-| Time to deliver structured evidence | 2880 min (2 days) | 3.5 min | 30 min | 822x faster (measured) / 96x faster (conservative) |
-| Core non-empty values | 186 | 198 | 198 | +12 (+6.5%) |
-| Unique studies captured | 23 | 30 | 30 | +7 (+30.4%) |
-| Traceability coverage proxy (evidence rows / core values) | 50.5% | 56.6% | 56.6% | +6.1 pp |
-| Evidence mapping pass rate | N/A | 100% | 100% | Higher auditability |
-
-![Benchmark Snapshot](assets/benchmark_snapshot_2026-02-09.png)
-
-Benchmark files:
-- `assets/benchmark_snapshot_2026-02-09.csv`
-- `assets/benchmark_snapshot_2026-02-09.json`
 
 ## Start in 3 Steps
 ```bash
