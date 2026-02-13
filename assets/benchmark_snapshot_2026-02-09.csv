@@ -1,0 +1,8 @@
+metric,expert_manual_baseline,pipeline_measured,pipeline_conservative_30m,delta_measured_vs_baseline
+time_minutes,2880.00,3.51,30.00,2876.49
+speedup_x_vs_2days,1.00,821.06,96.00,
+core_non_empty_values,186,198,198,12
+unique_studies,23,30,30,7
+evidence_rows,94,112,112,18
+evidence_coverage_ratio,0.5054,0.5657,0.5657,0.0603
+automation_evidence_mapping_rate_pct,N/A,100.0,100.0,

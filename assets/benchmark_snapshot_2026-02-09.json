@@ -1,0 +1,14 @@
+{
+  "note": "Expert profile label in README is user-provided. Time baseline uses 2 days for speedup comparison.",
+  "human_minutes": 2880.0,
+  "system_minutes_measured": 3.5076666666666667,
+  "system_minutes_conservative": 30.0,
+  "speedup_measured_x": 821.0586334695429,
+  "speedup_conservative_x": 96.0,
+  "core_non_empty_delta_abs": 12,
+  "core_non_empty_delta_pct": 6.451612903225806,
+  "unique_study_delta_abs": 7,
+  "unique_study_delta_pct": 30.434782608695656,
+  "evidence_coverage_human": 0.5053763440860215,
+  "evidence_coverage_system": 0.5656565656565656
+}
